@@ -2,14 +2,12 @@ import React from "react";
 import { useState } from "react";
 
 export default function TodoList(): JSX.Element {
-  let parsedTodos: string[] = JSON.parse(
-    localStorage.getItem("todos") as string
-  );
+  type todo = { todo: string; id: number };
+
+  let parsedTodos: todo[] = JSON.parse(localStorage.getItem("todos") as string);
 
   const [change, setChange] = useState("");
-  const [value, setValue] = useState<string[]>(parsedTodos);
-
-  localStorage.setItem("todos", JSON.stringify(value));
+  const [value, setValue] = useState<todo[]>(parsedTodos);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChange(e.target.value);
@@ -17,11 +15,11 @@ export default function TodoList(): JSX.Element {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setValue([...value, change]);
+    setValue([...value, { todo: change, id: Date.now() }]);
     setChange("");
   }
 
-  console.log(value);
+  localStorage.setItem("todos", JSON.stringify(value));
 
   return (
     <div className="todos">
@@ -31,18 +29,21 @@ export default function TodoList(): JSX.Element {
       </form>
       <div className="todos-body">
         <ul className="todos-body-list">
-          {value.map((a, index) => (
-            <>
-              <li key={index}>{a}</li>
+          {parsedTodos.map((a: todo) => (
+            <div key={a.id} className="todos-body-context">
+              <li>{a.todo}</li>
               <button
                 onClick={() => {
-                  let filteredValue = value.filter((a) => a !== value[index]);
+                  let id: number = a.id;
+                  let filteredValue = parsedTodos.filter(
+                    (a: todo) => a.id !== id
+                  );
                   setValue(filteredValue);
                 }}
               >
                 삭제
               </button>
-            </>
+            </div>
           ))}
         </ul>
       </div>
