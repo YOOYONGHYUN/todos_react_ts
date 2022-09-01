@@ -7,7 +7,9 @@ export default function TodoList(): JSX.Element {
   let parsedTodos: todo[] = JSON.parse(localStorage.getItem("todos") as string);
 
   const [change, setChange] = useState("");
-  const [value, setValue] = useState<todo[]>(parsedTodos);
+  let item: todo[];
+  parsedTodos ? (item = parsedTodos) : (item = []);
+  const [value, setValue] = useState<todo[]>(item);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChange(e.target.value);
