@@ -92,6 +92,7 @@ export default function Dates(): JSX.Element {
     <div className="calendar">
       <div className="calendar-head">
         <FaChevronLeft
+          style={{ cursor: "pointer" }}
           onClick={() => {
             if (month < 1) {
               setMonth(11);
@@ -106,6 +107,7 @@ export default function Dates(): JSX.Element {
           <div>{monthArr[month]}</div>
         </div>
         <FaChevronRight
+          style={{ cursor: "pointer" }}
           onClick={() => {
             if (month > 10) {
               setMonth(0);
