@@ -1,10 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./Todo.css";
 
 export default function TodoList(): JSX.Element {
   type todo = { todo: string; id: number };
 
   let parsedTodos: todo[] = JSON.parse(localStorage.getItem("todos") as string);
+  const [show, setShow] = useState(false);
 
   const [change, setChange] = useState("");
   let item: todo[];
@@ -23,17 +25,24 @@ export default function TodoList(): JSX.Element {
 
   localStorage.setItem("todos", JSON.stringify(value));
 
+  useEffect(() => {
+    if (value.length !== 0) setShow(true);
+    else setShow(false);
+  }, [value]);
+
+  console.log(show);
   return (
     <div className="todos">
       <form className="todos-head" onSubmit={handleSubmit}>
         <input type="text" onChange={handleChange} value={change} />
         <button>추가</button>
       </form>
-      <div className="todos-body">
-        <ul className="todos-body-list">
+
+      {show ? (
+        <div className="todos-body">
           {parsedTodos.map((a: todo) => (
             <div key={a.id} className="todos-body-context">
-              <li>{a.todo}</li>
+              <div>{a.todo}</div>
               <button
                 onClick={() => {
                   let id: number = a.id;
@@ -47,8 +56,8 @@ export default function TodoList(): JSX.Element {
               </button>
             </div>
           ))}
-        </ul>
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 }
