@@ -102,9 +102,10 @@ export default function Try(props: {
                         <div
                           onClick={() => {
                             console.log(a);
-                            let qwe = details.filter((b) => b.id2 !== a.id2);
-                            console.log(qwe);
-                            setDetails(qwe);
+                            let filteredDetails = details.filter(
+                              (b) => b.id2 !== a.id2
+                            );
+                            setDetails(filteredDetails);
                           }}
                         >
                           ❌
