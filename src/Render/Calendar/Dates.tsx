@@ -131,8 +131,8 @@ export default function Dates(): JSX.Element {
 function CalendarBody(props: any): JSX.Element {
   return (
     <div className="calendar-body-container">
-      {props.weeks.map((a: number) => (
-        <div className="calendar-body-date">{a}</div>
+      {props.weeks.map((date: number) => (
+        <div className="calendar-body-date">{date}</div>
       ))}
     </div>
   );
