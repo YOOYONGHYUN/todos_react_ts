@@ -130,13 +130,7 @@ export default function Dates(): JSX.Element {
 
 function CalendarBody(props: any): JSX.Element {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-      }}
-    >
+    <div className="calendar-body-container">
       {props.weeks.map((a: number) => (
         <div className="calendar-body-date">{a}</div>
       ))}
