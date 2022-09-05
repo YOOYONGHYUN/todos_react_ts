@@ -1,0 +1,32 @@
+.todos {
+  margin-left: 30px;
+  position: relative;
+}
+
+.todos-body {
+  position: absolute;
+  top: 40px;
+  width: 200px;
+  box-shadow: 0px 0px 2px 1px rgb(214, 214, 214);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.todos-head input {
+  margin-right: 7px;
+}
+
+.todos-body-context {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.todos-body-context:last-child {
+  margin-bottom: 0px;
+}
+
+button,
+.todos-body-context > div {
+  cursor: pointer;
+}
