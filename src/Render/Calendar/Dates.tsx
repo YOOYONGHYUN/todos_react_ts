@@ -128,11 +128,15 @@ export default function Dates(): JSX.Element {
   );
 }
 
+//props의 타입이 무엇일까...?
 function CalendarBody(props: any): JSX.Element {
+  console.log(props);
   return (
     <div className="calendar-body-container">
-      {props.weeks.map((date: number) => (
-        <div className="calendar-body-date">{date}</div>
+      {props.weeks.map((date: number, idx: number) => (
+        <div key={idx} className="calendar-body-date">
+          {date}
+        </div>
       ))}
     </div>
   );
