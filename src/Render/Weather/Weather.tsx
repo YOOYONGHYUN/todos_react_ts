@@ -20,7 +20,6 @@ export default function Weather(): JSX.Element {
     description: "",
     icon: "",
   });
-  const [city, setCity] = useState<string>("");
 
   //내 위치 정보 가져오기
   // function success(pos: GeolocationPosition) {
@@ -56,7 +55,6 @@ export default function Weather(): JSX.Element {
         const response = await axios.get(url);
         console.log(response);
         setWeather(response.data.weather[0]);
-        setCity(response.data.name);
       } catch (err) {
         console.log(err);
       }
@@ -69,7 +67,7 @@ export default function Weather(): JSX.Element {
 
   return (
     <div className="weather-container">
-      <div className="weather-context">{city}'s weather</div>
+      <div className="weather-context">Today's weather</div>
       <div className="weather-icon-box">
         <div>{weather.main}</div>
         <ShowWeather iconIdx={iconIdx} />
