@@ -22,17 +22,32 @@ export default function Weather(): JSX.Element {
   });
   const [city, setCity] = useState<string>("");
 
-  function success(pos: GeolocationPosition) {
-    setLatitude(pos.coords.latitude);
-    setLogitude(pos.coords.longitude);
-  }
+  //내 위치 정보 가져오기
+  // function success(pos: GeolocationPosition) {
+  //   setLatitude(pos.coords.latitude);
+  //   setLogitude(pos.coords.longitude);
+  // }
 
-  function error(err: GeolocationPositionError) {
-    console.log(err);
-  }
-  navigator.geolocation.getCurrentPosition(success, error);
+  // function error(err: GeolocationPositionError) {
+  //   console.log(err);
+  // }
 
+  // navigator.geolocation.getCurrentPosition(success, error);
+
+  // 위치 정보에 기반하여 현재 날씨 가져오기
   useEffect(() => {
+    //내 위치 정보 가져오기
+    function success(pos: GeolocationPosition) {
+      setLatitude(pos.coords.latitude);
+      setLogitude(pos.coords.longitude);
+    }
+
+    function error(err: GeolocationPositionError) {
+      console.log(err);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
     console.log(longitude, latitude);
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${api}&lang=kr`;
 
