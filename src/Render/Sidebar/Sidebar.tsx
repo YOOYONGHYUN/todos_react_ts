@@ -10,7 +10,7 @@ import {
 export default function Sidebar(): JSX.Element {
   return (
     <div className="todo-sidebar">
-      <div></div>
+      <div className="sidebar-user"></div>
       <div className="sidebar-home">
         <FaHome />
         <div>홈</div>
