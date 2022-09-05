@@ -12,6 +12,8 @@ export default function TodoList(): JSX.Element {
 
   const [change, setChange] = useState("");
 
+  const [color, setColor] = useState(0);
+
   //parsedTodos가 있으면 value의 초기값을 parsedTodos로 비어있으면 그냥 빈 배열로 설정.
   let item: todo[];
   parsedTodos ? (item = parsedTodos) : (item = []);
@@ -48,31 +50,34 @@ export default function TodoList(): JSX.Element {
         </form>
 
         {show ? (
-          <div className="todos-body">
+          <>
             {parsedTodos.map((a: todo) => (
-              <div key={a.id} className="todos-body-context">
-                <div
-                  onClick={() => {
-                    setId(a.id);
-                    setDetailState(true);
-                  }}
-                >
-                  {a.todo}
+              <div className={color === a.id ? "selected-todo" : "todos-body"}>
+                <div key={a.id} className="todos-body-context">
+                  <div
+                    onClick={() => {
+                      setId(a.id);
+                      setDetailState(true);
+                      setColor(a.id);
+                    }}
+                  >
+                    {a.todo}
+                  </div>
+                  <button
+                    onClick={() => {
+                      let id: number = a.id;
+                      let filteredValue = parsedTodos.filter(
+                        (a: todo) => a.id !== id
+                      );
+                      setValue(filteredValue);
+                    }}
+                  >
+                    삭제
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    let id: number = a.id;
-                    let filteredValue = parsedTodos.filter(
-                      (a: todo) => a.id !== id
-                    );
-                    setValue(filteredValue);
-                  }}
-                >
-                  삭제
-                </button>
               </div>
             ))}
-          </div>
+          </>
         ) : null}
       </div>
 
