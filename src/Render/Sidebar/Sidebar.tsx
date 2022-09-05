@@ -9,23 +9,25 @@ import {
 
 export default function Sidebar(): JSX.Element {
   return (
-    <div className="todo-sidebar">
-      <div className="sidebar-user"></div>
+    <div className="todos-sidebar">
+      <div className="sidebar-user">
+        <div className="sidebar-user-context"></div>
+      </div>
       <div className="sidebar-home">
-        <FaHome />
-        <div>홈</div>
+        <FaHome className="sidebar-icon" />
+        <div className="sidebar-text">홈</div>
       </div>
       <div className="sidebar-metting">
-        <FaRegComments />
-        <div>회의</div>
+        <FaRegComments className="sidebar-icon" />
+        <div className="sidebar-text">회의</div>
       </div>
       <div className="sidebar-work">
-        <FaRegFileAlt />
-        <div>업무</div>
+        <FaRegFileAlt className="sidebar-icon" />
+        <div className="sidebar-text">업무</div>
       </div>
       <div className="sidebar-statics">
-        <FaChartBar />
-        <div>통계</div>
+        <FaChartBar className="sidebar-icon" />
+        <div className="sidebar-text">통계</div>
       </div>
     </div>
   );
