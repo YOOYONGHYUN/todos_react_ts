@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./Todo.css";
+import "./TodoList.css";
 import TodoDetail from "./TodoDeatil";
 
 export default function TodoList(): JSX.Element {
