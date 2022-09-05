@@ -43,7 +43,7 @@ export default function TodoList(): JSX.Element {
 
   return (
     <>
-      <div className="todos">
+      <div className="todos-list">
         <form className="todos-head" onSubmit={handleSubmit}>
           <input type="text" onChange={handleChange} value={change} />
           <button>추가</button>

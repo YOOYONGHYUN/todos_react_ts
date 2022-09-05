@@ -19,9 +19,9 @@ function App(): JSX.Element {
     <div style={{ display: "flex" }}>
       <Sidebar handleWork={handleWork} work={work} />
       {work ? (
-        <div className="todo-project">
+        <div className="todos-main">
           <TodoList />
-          <div className="todo-project-side">
+          <div className="todos-addons">
             <Weather />
             <Calendar />
           </div>

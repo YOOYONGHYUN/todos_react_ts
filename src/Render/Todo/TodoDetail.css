@@ -1,10 +1,4 @@
-.detail-context {
-  margin-bottom: 10px;
-  cursor: pointer;
-  margin-top: 30px;
-}
-
-.detail-container {
+.todos-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,34 +6,40 @@
   background-color: #e7eaf4;
 }
 
+.detail-context {
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
 .detail-textarea {
   margin-left: 80px;
   z-index: 1;
 }
 
-.details-list {
+.detail-list {
   background-color: #ffffff;
   border-radius: 10px;
   width: 630px;
   padding: 20px 10px;
 }
 
-.details-flexbox {
+.detail-flexbox {
   display: flex;
   align-items: flex-end;
   margin-left: 5px;
 }
 
-.details-flexbox:not(:last-child) {
+.detail-flexbox:not(:last-child) {
   margin-bottom: 15px;
 }
 
-.details-flexbox > div {
+.detail-flexbox > div {
   margin-right: 10px;
   font-size: 10px;
 }
 
-.details-flexbox > div:nth-child(2) {
+.detail-flexbox > div:nth-child(2) {
   text-align: center;
 
   font-size: 3px;

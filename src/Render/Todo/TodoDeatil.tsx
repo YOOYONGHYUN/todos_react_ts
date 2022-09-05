@@ -41,7 +41,7 @@ export default function Try(props: {
   console.log(filter);
   console.log(detailShow);
   return (
-    <div className="detail-container">
+    <div className="todos-detail">
       {props.detailState ? (
         <>
           <input
@@ -94,10 +94,10 @@ export default function Try(props: {
           {show ? null : (
             <>
               {detailShow ? (
-                <div className="details-list">
+                <div className="detail-list">
                   <>
                     {filter.map((a) => (
-                      <div className="details-flexbox">
+                      <div className="detail-flexbox">
                         <div>{a.text}</div>
                         <div
                           onClick={() => {
