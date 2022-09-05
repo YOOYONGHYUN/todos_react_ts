@@ -7,7 +7,12 @@ import {
   FaRegComments,
 } from "react-icons/fa";
 
-export default function Sidebar(): JSX.Element {
+export default function Sidebar(props: {
+  handleWork: () => void;
+  work: boolean;
+}): JSX.Element {
+  console.log(props);
+
   return (
     <div className="todos-sidebar">
       <div className="sidebar-user">
@@ -19,11 +24,19 @@ export default function Sidebar(): JSX.Element {
       </div>
       <div className="sidebar-metting">
         <FaRegComments className="sidebar-icon" />
+
         <div className="sidebar-text">회의</div>
       </div>
-      <div className="sidebar-work">
-        <FaRegFileAlt className="sidebar-icon" />
-        <div className="sidebar-text">업무</div>
+      <div
+        className={props.work ? "select-sidebar-work" : "sidebar-work"}
+        onClick={() => {
+          props.handleWork();
+        }}
+      >
+        <div>
+          <FaRegFileAlt className="sidebar-icon" />
+          <div className="sidebar-text">업무</div>
+        </div>
       </div>
       <div className="sidebar-statics">
         <FaChartBar className="sidebar-icon" />

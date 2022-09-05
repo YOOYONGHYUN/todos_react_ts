@@ -19,6 +19,7 @@
   justify-content: center;
   width: 80px;
   height: 80px;
+  cursor: pointer;
 }
 
 .sidebar-icon {
@@ -28,4 +29,32 @@
 
 .sidebar-text {
   font-size: 12px;
+}
+
+.select-sidebar-work {
+  background-color: #ffffff;
+  color: #0039a7;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+.select-sidebar-work > div {
+  background-color: #f2f5fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.select-sidebar-work .sidebar-text {
+  margin-right: 20px;
+}
+
+.select-sidebar-work .sidebar-icon {
+  margin-bottom: 12px;
+  margin-right: 20px;
 }

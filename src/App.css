@@ -1,6 +1,13 @@
 .todo-project {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 30px;
+  width: 1440px;
+  height: 1025px;
+}
+
+.todo-project-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 373px;
+  background-color: #f2f5fc;
 }
