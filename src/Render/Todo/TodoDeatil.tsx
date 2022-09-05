@@ -29,7 +29,7 @@ export default function Try(props: {
   //detail List 관리하기 위한 useState
   const [detailShow, setDetailShow] = useState(false);
 
-  let filter = details.filter((a) => a.id === props.id);
+  let filter = details.filter((detail) => detail.id === props.id);
 
   localStorage.setItem("details", JSON.stringify(details));
 
@@ -96,14 +96,14 @@ export default function Try(props: {
               {detailShow ? (
                 <div className="detail-list">
                   <>
-                    {filter.map((a) => (
+                    {filter.map((filterItem) => (
                       <div className="detail-flexbox">
-                        <div>{a.text}</div>
+                        <div>{filterItem.text}</div>
                         <div
                           onClick={() => {
-                            console.log(a);
+                            console.log(filterItem);
                             let filteredDetails = details.filter(
-                              (b) => b.id2 !== a.id2
+                              (a) => a.id2 !== filterItem.id2
                             );
                             setDetails(filteredDetails);
                           }}

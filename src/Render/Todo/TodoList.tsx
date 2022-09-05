@@ -51,23 +51,27 @@ export default function TodoList(): JSX.Element {
 
         {show ? (
           <>
-            {parsedTodos.map((a: todo) => (
-              <div className={color === a.id ? "selected-todo" : "todos-body"}>
-                <div key={a.id} className="todos-body-context">
+            {parsedTodos.map((todoItem: todo) => (
+              <div
+                className={
+                  color === todoItem.id ? "selected-todo" : "todos-body"
+                }
+              >
+                <div key={todoItem.id} className="todos-body-context">
                   <div
                     onClick={() => {
-                      setId(a.id);
+                      setId(todoItem.id);
                       setDetailState(true);
-                      setColor(a.id);
+                      setColor(todoItem.id);
                     }}
                   >
-                    {a.todo}
+                    {todoItem.todo}
                   </div>
                   <button
                     onClick={() => {
-                      let id: number = a.id;
+                      let id: number = todoItem.id;
                       let filteredValue = parsedTodos.filter(
-                        (a: todo) => a.id !== id
+                        (todo: todo) => todo.id !== id
                       );
                       setValue(filteredValue);
                     }}
